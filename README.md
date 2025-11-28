@@ -1,20 +1,17 @@
+<pre>
 # Networking Lab
 
-This lab documents the setup of an EC2 instance with NGINX and connecting it to a custom domain using Cloudflare.
+This lab documents setting up an EC2 instance with NGINX and connecting it to a custom domain via Cloudflare.
 
 ---
 
 ## 1. What I Built
 
-- Launched an **AWS EC2 instance**:
-  - Ubuntu 24.04 LTS
-  - t3.micro instance
-  - Security group allowing **SSH (22)** and **HTTP (80)**
-- Installed and configured **NGINX** as a web server
-- Connected **networking-lab.uk** domain via **Cloudflare DNS**
-  - A records for `@` and `www` pointing to EC2 public IP `18.169.184.240`
-  - Temporarily set to **DNS Only (grey cloud)** to bypass Cloudflare proxy
-- Verified that the website loads the **NGINX Welcome Page**
+- AWS EC2 instance (Ubuntu 24.04 LTS, t3.micro)
+- Security group allowing SSH (22) and HTTP (80)
+- Installed NGINX
+- Connected **networking-lab.uk** via Cloudflare DNS
+- Verified website loads NGINX Welcome Page
 
 ---
 
@@ -41,65 +38,45 @@ sudo systemctl status nginx
 
 ## 3. DNS Configuration
 
-- **Cloudflare DNS Records**:
+To connect your domain:
 
-| Type | Name | Content          | Proxy Status |
-|------|------|-----------------|--------------|
-| A    | @    | 18.169.184.240  | DNS Only     |
-| A    | www  | 18.169.184.240  | DNS Only     |
-
-- Waited for DNS propagation (~1–5 minutes)
-- Verified with:
-
-\`\`\`bash
-nslookup networking-lab.uk
-ping networking-lab.uk
-\`\`\`
+1. Go to your domain in **Cloudflare**.
+2. Add **A records** for `@` and `www` pointing to your EC2 public IP (e.g., 18.169.184.240).
+3. Set proxy status to **DNS Only** to bypass Cloudflare temporarily.
+4. Wait a few minutes for DNS propagation.
+5. Verify with `nslookup your-domain` or `ping your-domain`.
 
 ---
 
-## 4. Screenshots
-
-1. **EC2 Instance Running NGINX**  
-   ![EC2 NGINX Screenshot](screenshots/ec2_nginx.png)
-
-2. **Cloudflare DNS Records**  
-   ![Cloudflare DNS Screenshot](screenshots/cloudflare_dns.png)
+## 4. Website Screenshot
 
 3. **Website in Browser**  
    ![Website Screenshot](https://github.com/Anas-A079/Networking-Lab/blob/main/Screenshot%20from%202025-11-28%2000-57-23.png?raw=true)
-
-> Replace `screenshots/...` with the actual paths of your screenshots in the repository.
 
 ---
 
 ## 5. Lessons Learned
 
-- How to **launch an EC2 instance** and configure security groups  
-- Installing and managing **NGINX on Ubuntu**  
-- Connecting a **custom domain via Cloudflare DNS**  
-- Understanding how Cloudflare **orange cloud (proxy)** affects direct access  
-- Basic troubleshooting using `curl`, `nslookup`, and `ping`  
+- Launching an EC2 instance and configuring security groups
+- Installing and managing NGINX
+- Connecting a custom domain via Cloudflare DNS
+- Troubleshooting with `nslookup`, `ping`, and `curl`
 
 ---
 
 ## 6. Challenges & Solutions
 
-- **Problem:** Domain wasn’t loading despite correct A records  
-  **Solution:** Cloudflare proxy was enabled; switching to **DNS Only** allowed direct access  
-
-- **Problem:** Unable to connect using browser-based EC2 Instance Connect  
-  **Solution:** Used the key pair to SSH from local terminal  
+- **Domain not loading:** Cloudflare proxy was enabled → switched to DNS Only  
+- **SSH connection issue:** Used key pair from local terminal instead of browser-based connect
 
 ---
 
 ## 7. Summary
 
-Successfully built a small **web server lab environment** for DevOps learning:
+Built a simple web server lab for DevOps learning:
 
-- EC2 instance with Ubuntu
-- NGINX installed and serving content
-- Custom domain pointing correctly to EC2
-- Documented process and troubleshooting steps
-
----
+- EC2 instance running Ubuntu
+- NGINX serving content
+- Custom domain pointing to EC2
+- Documented setup and troubleshooting
+</pre>
