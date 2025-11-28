@@ -17,29 +17,29 @@ This lab documents setting up an EC2 instance with NGINX and connecting it to a 
 ## 2. Usage
 
 - Update package index:
-\`\`\`bash
+```bash
 sudo apt update -y
-\`\`\`
+```
 
 - Install NGINX:
-\`\`\`bash
+```bash
 sudo apt install nginx -y
-\`\`\`
+```
 
 - Enable NGINX to start on boot:
-\`\`\`bash
+```bash
 sudo systemctl enable nginx
-\`\`\`
+```
 
 - Start NGINX:
-\`\`\`bash
+```bash
 sudo systemctl start nginx
-\`\`\`
+```
 
 - Check NGINX status:
-\`\`\`bash
+```bash
 sudo systemctl status nginx
-\`\`\`
+```
 
 ---
 
