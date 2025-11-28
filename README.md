@@ -1,4 +1,4 @@
-<pre>
+
 # Networking Lab
 
 This lab documents setting up an EC2 instance with NGINX and connecting it to a custom domain via Cloudflare.
@@ -79,4 +79,4 @@ Built a simple web server lab for DevOps learning:
 - NGINX serving content
 - Custom domain pointing to EC2
 - Documented setup and troubleshooting
-</pre>
+
