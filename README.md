@@ -67,7 +67,7 @@ ping networking-lab.uk
    ![Cloudflare DNS Screenshot](screenshots/cloudflare_dns.png)
 
 3. **Website in Browser**  
-   ![Website Screenshot](screenshots/nginx_browser.png)
+   ![Website Screenshot](https://github.com/Anas-A079/Networking-Lab/blob/main/Screenshot%20from%202025-11-28%2000-57-23.png?raw=true)
 
 > Replace `screenshots/...` with the actual paths of your screenshots in the repository.
 
